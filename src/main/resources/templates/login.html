@@ -25,7 +25,7 @@
 			<!-- パスワード入力フォーム -->
 			<label for="password">password:</label>
 			<p th:text="${nullPassword}"></p>
-			<input name="password" id="password" th:field="*{password}"><br>
+			<input name="password" id="password" th:field="*{password}" type="password"><br>
 			<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
 			
 			<!-- ログインボタン -->
