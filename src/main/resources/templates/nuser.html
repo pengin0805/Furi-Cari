@@ -12,15 +12,15 @@
 	
 	<form method="post" action="#" th:action="@{/furicari/finish}" th:object="${userForm}">
 		<label for="nickname">NickName:</label>
-		<input id="nickname" name="nickname" type="text" th:value="*{nickname}" required="required" placeholder="１～"><br>
+		<input id="nickname" name="nickname" type="text" size="40" maxlength="4" th:value="*{nickname}" required="required" placeholder="1文字以上4文字以内で入力してください"><br>
 		<div th:if="${#fields.hasErrors('nickname')}" th:errors="*{nickname}"></div>
 		
 		<label for="mail">mail:</label>
-		<input id="mail" name="mail" type="text" th:value="*{mail}"><br>
+		<input id="mail" name="mail" type="text"size="40"  th:value="*{mail}" required="required" placeholder="メールアドレスを入力してください"><br>
 		<div th:if="${#fields.hasErrors('mail')}" th:errors="*{mail}"></div>
 		
 		<label for="password">password:</label>
-		<input name="password" id="password" rows="2" cols="20" th:field="*{password}" type="password"></input><br>
+		<input name="password" id="password" rows="2" cols="20" th:field="*{password}" type="password" size="40" maxlength="8" required="required" placeholder="4文字以上8文字以内で入力してください"></input><br>
 		<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
 		<input type="submit" value="確認ページへ">
 	</form>
