@@ -35,7 +35,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Map<String,Object> loginData(User user) {
 		return userdao.loginDataUser(user);
-		
+	}
+
+	@Override
+	public void delete(int id) {
+		userdao.deleteUser(id);
 	}
 
 	

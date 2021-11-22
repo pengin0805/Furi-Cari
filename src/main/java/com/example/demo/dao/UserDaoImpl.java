@@ -64,21 +64,31 @@ public class UserDaoImpl implements UserDao {
 			Map<String, Object> loginUserData = jdbcTemplate.queryForMap("SELECT * FROM user WHERE mail = ? AND password = ?",user.getMail(),user.getPassword());
 			Map<String, Object> getLogin = new HashMap<>();
 			User userLogin = new User();
-			userLogin.setNickname((String)loginUserData.get("nickname"));
-			userLogin.setMail((String)loginUserData.get("mail"));
-			userLogin.setPassword((String)loginUserData.get("password"));
-			userLogin.setId((int)loginUserData.get("id"));
-			 
-			getLogin.put("nickname",userLogin.getNickname());
-			getLogin.put("mail",userLogin.getMail());
-			getLogin.put("password",userLogin.getPassword());
-			getLogin.put("id",userLogin.getId());
-			return getLogin;
+			if(loginUserData != null) {
+				userLogin.setNickname((String)loginUserData.get("nickname"));
+				userLogin.setMail((String)loginUserData.get("mail"));
+				userLogin.setPassword((String)loginUserData.get("password"));
+				userLogin.setId((int)loginUserData.get("id"));
+				 
+				getLogin.put("nickname",userLogin.getNickname());
+				getLogin.put("mail",userLogin.getMail());
+				getLogin.put("password",userLogin.getPassword());
+				getLogin.put("id",userLogin.getId());
+				return getLogin;
+			}else {
+				return null;
+			}
+			
 		} catch (EmptyResultDataAccessException e) {
           System.out.println("��O���������܂���");
           Map<String, Object> notLogin = new HashMap<>();
           return notLogin;
         }
+	}
+
+	@Override
+	public void deleteUser(int id) {
+		jdbcTemplate.update("DELETE FROM user WHERE id = ?",id);
 	}
 
 }

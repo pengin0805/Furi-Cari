@@ -8,6 +8,7 @@ class FuriCariApplicationTests {
 
 	@Test
 	void contextLoads() {
+		
 	}
 
 }
