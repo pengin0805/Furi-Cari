@@ -19,13 +19,13 @@
 			<p th:text="${Mail}"></p>
 			<label for="mail">mail:</label>
 			<p th:text="${notMail}"></p>
-			<input id="mail" name="mail" type="text" th:value="*{mail}"><br>
+			<input id="mail" name="mail" type="text" th:value="*{mail}" placeholder="メールアドレスを入力"><br>
 			<div th:if="${#fields.hasErrors('mail')}" th:errors="*{mail}"></div>
 			
 			<!-- パスワード入力フォーム -->
 			<label for="password">password:</label>
 			<p th:text="${nullPassword}"></p>
-			<input name="password" id="password" th:field="*{password}" type="password"><br>
+			<input name="password" id="password" th:field="*{password}" type="password" placeholder="4文字以上8文字以内で入力"><br>
 			<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
 			
 			<!-- ログインボタン -->
